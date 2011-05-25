@@ -1,3 +1,41 @@
+GIT
+  remote: git://github.com/rspec/rspec-core.git
+  revision: c3d9f1beb6703ea4960bd7d1465d59bf936340a1
+  specs:
+    rspec-core (2.6.3)
+
+GIT
+  remote: git://github.com/rspec/rspec-expectations.git
+  revision: 39fc4ddf7566f3de9f40942c39df3b4ae3c76300
+  specs:
+    rspec-expectations (2.6.0)
+      diff-lcs (~> 1.1.2)
+
+GIT
+  remote: git://github.com/rspec/rspec-mocks.git
+  revision: e21b5d10ac88817f5a3477c80fd963a3027f712f
+  specs:
+    rspec-mocks (2.6.0)
+
+GIT
+  remote: git://github.com/rspec/rspec-rails.git
+  revision: f8a6b93432d86564692406534a12601ad0b07de7
+  specs:
+    rspec-rails (2.6.1.beta1)
+      actionpack (~> 3.0)
+      activesupport (~> 3.0)
+      railties (~> 3.0)
+      rspec (~> 2.6.0)
+
+GIT
+  remote: git://github.com/rspec/rspec.git
+  revision: 145e3d4b938796911bc6e59739c5cd044b24c045
+  specs:
+    rspec (2.6.0)
+      rspec-core (~> 2.6.0)
+      rspec-expectations (~> 2.6.0)
+      rspec-mocks (~> 2.6.0)
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -42,6 +80,7 @@ GEM
     celerity (0.8.9)
     childprocess (0.1.8)
       ffi (~> 1.0.6)
+    configuration (1.2.0)
     culerity (0.2.15)
     diff-lcs (1.1.2)
     erubis (2.6.6)
@@ -57,6 +96,9 @@ GEM
       rails (~> 3.0)
       thor (~> 0.14)
     json_pure (1.5.1)
+    launchy (0.4.0)
+      configuration (>= 0.0.5)
+      rake (>= 0.8.1)
     mail (2.2.19)
       activesupport (>= 2.3.6)
       i18n (>= 0.4.0)
@@ -84,19 +126,6 @@ GEM
       rake (>= 0.8.7)
       thor (~> 0.14.4)
     rake (0.8.7)
-    rspec (2.5.0)
-      rspec-core (~> 2.5.0)
-      rspec-expectations (~> 2.5.0)
-      rspec-mocks (~> 2.5.0)
-    rspec-core (2.5.2)
-    rspec-expectations (2.5.0)
-      diff-lcs (~> 1.1.2)
-    rspec-mocks (2.5.0)
-    rspec-rails (2.5.0)
-      actionpack (~> 3.0)
-      activesupport (~> 3.0)
-      railties (~> 3.0)
-      rspec (~> 2.5.0)
     rubyzip (0.9.4)
     selenium-webdriver (0.2.0)
       childprocess (>= 0.1.7)
@@ -119,8 +148,12 @@ DEPENDENCIES
   capybara
   factory_girl_rails
   jquery-rails
+  launchy
   rails (= 3.0.7)
-  rspec
-  rspec-rails
+  rspec!
+  rspec-core!
+  rspec-expectations!
+  rspec-mocks!
+  rspec-rails!
   spork
   sqlite3

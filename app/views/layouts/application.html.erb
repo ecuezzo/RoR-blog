@@ -3,12 +3,29 @@
 <head>
   <title>Blog</title>
   <%= stylesheet_link_tag :all %>
+  <%= stylesheet_link_tag 'style' %>
   <%= javascript_include_tag :defaults %>
   <%= csrf_meta_tag %>
 </head>
 <body>
 
+<header>
+  <h1>
+    <%= link_to "Welcome to my blog", root_url, :id => 'logo' %>
+  </h1>
+
+</header>
+
+<aside>
+Categories list
+</aside>
+
 <%= yield %>
+
+
+<footer>
+  &#169; 2011
+</footer>
 
 </body>
 </html>
