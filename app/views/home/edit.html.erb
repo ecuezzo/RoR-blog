@@ -1,0 +1,9 @@
+Edit
+<%= @post.title %>
+
+<%= simple_form_for @post do |post| %>
+    <%= post.input :title, :label => 'Title' %>
+    <%= post.input :body, :label => 'Post' %>
+    <%= post.button :submit %>
+
+<% end %>

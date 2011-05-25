@@ -1,7 +1,8 @@
 <div class="content">
-<% @post.each do |post| %>
+<% @posts.each do |post| %>
 <%= post.title %>
-<%= link_to "Read this post", post_path(post.title), :id => post.id %>
+<%= link_to "Read", post_path(post), :id => post.id %>
+<%= link_to "Edit", edit_post_path(post), :id => "#{post.id}-edit" %>
 <br>
 <% end %>
 </div>

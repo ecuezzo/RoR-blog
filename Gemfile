@@ -4,6 +4,9 @@ gem 'rails', '3.0.7'
 
 gem 'sqlite3'
 gem 'jquery-rails'
+gem 'simple_form'
+gem 'acts-as-taggable-on'
+gem 'omniauth'
 
 group :development, :test do
   gem 'spork'
@@ -12,8 +15,10 @@ group :development, :test do
   gem "rspec-core",         :git => "git://github.com/rspec/rspec-core.git"
   gem "rspec-expectations", :git => "git://github.com/rspec/rspec-expectations.git"
   gem "rspec-mocks",        :git => "git://github.com/rspec/rspec-mocks.git"
-  gem 'factory_girl_rails'
+  gem 'factory_girl_rails'  #try fabrication? hm...
   gem 'capybara'
   gem 'launchy'
+  gem 'database_cleaner'
   gem 'simplecov', '>= 0.4.0', :require => false
+  gem 'rails_best_practices', :require => false
 end

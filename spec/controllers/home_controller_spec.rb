@@ -12,7 +12,7 @@ describe HomeController do
       page.should have_content(@post.title)
     end
 
-    it "should be show page for each post" do
+    it "should show page for each post" do
       visit root_url
       click_link(@post.id.to_s)
       page.should have_content(@post.title)
@@ -23,6 +23,12 @@ describe HomeController do
       click_link(@post.id.to_s)
       click_link('logo')
       page.should have_content('Welcome to my blog')
+    end
+
+    it "should show edit post page" do
+      visit root_url
+      click_link(@post.id.to_s + '-edit')
+      page.should have_content("Edit " + @post.title)
     end
 
 end
