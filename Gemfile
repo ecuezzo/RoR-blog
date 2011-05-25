@@ -15,4 +15,5 @@ group :development, :test do
   gem 'factory_girl_rails'
   gem 'capybara'
   gem 'launchy'
+  gem 'simplecov', '>= 0.4.0', :require => false
 end
