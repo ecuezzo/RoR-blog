@@ -6,18 +6,14 @@ class HomeController < ApplicationController
     @posts  = Post.order("updated_at").page(params[:page]).per(5)
     respond_to do |format|
       format.html # index.html.erb
-      format.xml  { render :xml => @posts }
     end
   end
 
-  # GET /posts/1
-  # GET /posts/1.xml
   def show
     @post = Post.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
-      format.xml  { render :xml => @post }
     end
   end
 
@@ -64,7 +60,6 @@ class HomeController < ApplicationController
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
-        format.xml  { render :xml => @post.errors, :status => :unprocessable_entity }
       end
     end
   end

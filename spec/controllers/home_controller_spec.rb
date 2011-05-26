@@ -6,6 +6,10 @@ describe HomeController do
 
   before(:all) do
     @post = Factory(:post, :title => 'sample', :body => 'sample1')
+    10.times do  # >5, for kaminari test
+      Factory(:post, :title => ActiveSupport::SecureRandom.hex(16), :body => ActiveSupport::SecureRandom.hex(16))
+    end
+    @record_count = Post.all.count
   end
 
     it "should be posts on index page" do
@@ -15,7 +19,7 @@ describe HomeController do
 
     it "should show page for each post" do
       visit root_url
-      click_link(@post.id.to_s)
+      click_link(@post.id.to_s + '-read')
       page.should have_content(@post.title)
     end
 
@@ -33,13 +37,9 @@ describe HomeController do
     end
 
     it "should be working pagination" do
-      10.times do
-        Factory(:post, :title => ActiveSupport::SecureRandom.hex(16), :body => ActiveSupport::SecureRandom.hex(16))
-      end
       visit root_url
       click_link('Next')
-      click_link('7-edit')
-      save_and_open_page
+      click_link(@record_count.to_s + '-edit')
       page.should have_content("Edit")
     end
 

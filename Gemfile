@@ -3,6 +3,7 @@ source 'http://rubygems.org'
 gem 'rails', '3.0.7'
 
 gem 'sqlite3'
+gem 'devise', '1.3.4'
 gem 'jquery-rails'
 gem 'simple_form'
 gem 'acts-as-taggable-on'
@@ -23,7 +24,7 @@ group :development, :test do
   gem 'factory_girl_rails'  #try fabrication? hm...
   gem 'capybara'
   gem 'launchy'
-  gem 'database_cleaner'
+  #gem 'database_cleaner'
   gem 'simplecov', '>= 0.4.0', :require => false
   gem 'rails_best_practices', :require => false
 end

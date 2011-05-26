@@ -2,10 +2,10 @@ html, body {
 height: 100%;
 }
 
-aside, header, footer {
+aside, header, footer, .post {
     moz-border-radius: 10px;
     border-radius: 10px;
-    background: black;
+    background: #009999;
 }
 
 header {
@@ -24,18 +24,18 @@ aside {
     color: white;
     width: 150px;
     min-height: 80%;
-    margin-top: 0px;
+    margin-top: -10px;
     padding: 10px;
     text-align: center;
 }
 
 .content {
-    margin-right: 160px;
+    margin-right: 200px;
 }
 
 .content a:hover {
     text-decoration: none;
-    background: grey;
+    background: #00cccc;
     color: white;
 }
 
@@ -46,4 +46,21 @@ footer {
     width: 100%;
     color: white;
     text-align: center;
+}
+
+.post {
+    background: #a9bfd0;
+    padding: 10px;
+}
+
+.post-title {
+    font-size: 20px;
+    font-weight: bold;
+    border-bottom: 1px solid #999999;
+    margin-bottom: 5px;
+}
+
+.post-links {
+    margin-top: 5px;
+    margin-bottom: 20px;
 }

@@ -1,8 +1,6 @@
 Blog::Application.routes.draw do
-  resources :posts, :controller => 'home'
-  #match '/post/:name', :to => 'home#show', :as => 'post'
-  #match "/posts/:name" => redirect("/post/%{name}")
-  #match '/post/:name/edit', :to => 'home#edit', :as => 'post_edit'
+resources :posts, :controller => 'home'
+devise_for :admins
 
   root :to => 'home#index'
 end
