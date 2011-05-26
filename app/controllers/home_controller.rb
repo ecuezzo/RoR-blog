@@ -30,7 +30,11 @@ class HomeController < ApplicationController
 
   # GET /posts/1/edit
   def edit
-    @post = Post.find(params[:id])
+    if admin_signed_in?
+       @post = Post.find(params[:id])
+    else
+       redirect_to(root_url, :notice => 'Access denied')
+    end
   end
 
   # POST /posts

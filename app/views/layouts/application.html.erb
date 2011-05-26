@@ -10,7 +10,17 @@
 
 <header>
   <h1>
-    <%= link_to "Welcome to my blog", root_url, :id => 'logo' %>
+    <div id="logo">
+      <%= link_to "Welcome to my blog", root_url, :id => 'logo' %>
+    </div>
+    <div id="admin-login">
+      <% if admin_signed_in? %>
+      <%= current_admin.email %>
+      <%= link_to "logout", destroy_admin_session_path %>
+      <% else %>
+      <%= link_to "admin login", new_admin_session_path %>
+      <% end %>
+    </div>
   </h1>
 
 </header>

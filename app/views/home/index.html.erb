@@ -11,7 +11,9 @@
 </div>
 <div class="post-links">
   <%= link_to "Read", post_path(post), :id => "#{post.id}-read" %>
-  <%= link_to "Edit", edit_post_path(post), :id => "#{post.id}-edit" %>
+  <% if admin_signed_in? %>
+    <%= link_to "Edit", edit_post_path(post), :id => "#{post.id}-edit" %>
+  <% end %>
 </div>
 <% end %>
 </div>

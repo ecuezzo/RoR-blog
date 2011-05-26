@@ -11,6 +11,7 @@ gem 'omniauth'
 
 group :production, :development, :test do
   gem 'kaminari'
+  gem "rake", '0.8.7'
 end
 
 
