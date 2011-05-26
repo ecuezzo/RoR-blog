@@ -1,5 +1,7 @@
 require 'simplecov'
-SimpleCov.start 'rails'
+SimpleCov.start 'rails' do
+  add_filter 'devise' #temp hack, devise --> local folder with gems
+end
 require 'rubygems'
 require 'spork'
 
@@ -21,8 +23,8 @@ ENV["RAILS_ENV"] ||= 'test'
 require File.expand_path("../../config/environment", __FILE__)
 require 'rspec/rails'
 require 'capybara/rspec'
-
 require 'factory_girl'
+
 Factory.find_definitions
 
 Dir[Rails.root.join("spec/support/**/*.rb")].each {|f| require f}

@@ -12,7 +12,7 @@ describe HomeController do
     end
     @record_count = Post.all.count
 
-    #factory_girl can't see :admin factory at this time, strange. refactor coming.
+    #factory_girl can't see :admin factory at this time, it's strange. So, refactor is coming.
     Admin.create!(:email => 'ecuezzo@yahoo.ca', :password => '111111')
   end
 
@@ -34,6 +34,16 @@ describe HomeController do
       page.should have_content('Welcome to my blog')
     end
 
+    it "should not be edit link, if not admin" do
+      visit root_url
+      page.should_not have_selector("a##{@post.id.to_s}-edit")
+    end
+
+    it "should redirect from edit page to main, if not admin" do
+      visit edit_post_path(@post)
+      page.should have_content("Access denied")
+    end
+
     it "should login with valid credentials" do
       visit new_admin_session_path
       fill_in 'admin_email', :with => 'ecuezzo@yahoo.ca' #@admin.email
@@ -43,9 +53,27 @@ describe HomeController do
     end
 
     #oh my god! make factory_girl working and refactor this blonde logic
-    it "should show edit post page after admin login" do
+    it "should edit post after admin login" do
       click_link(@post.id.to_s + '-edit')
-      page.should have_content("Edit " + @post.title)
+      fill_in 'post_title', :with => ActiveSupport::SecureRandom.hex(16)
+      fill_in 'post_body', :with => ActiveSupport::SecureRandom.hex(16)
+      click_button 'post_submit'
+      page.should have_content('Post was successfully updated.')
+    end
+
+    it "should not edit post with invalid input" do
+      #fuck devise, fuck my low experiense :-)
+      visit destroy_admin_session_path
+      visit new_admin_session_path
+      fill_in 'admin_email', :with => 'ecuezzo@yahoo.ca' #@admin.email
+      fill_in 'admin_password', :with => '111111' #@admin.password
+      click_button 'Sign in'
+
+      click_link(@post.id.to_s + '-edit')
+      fill_in 'post_title', :with => ActiveSupport::SecureRandom.hex(16)
+      fill_in 'post_body', :with => nil
+      click_button 'post_submit'
+      page.should have_no_content('Post was successfully updated.')
     end
 
     it "should be working pagination" do
