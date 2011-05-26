@@ -2,8 +2,8 @@ class HomeController < ApplicationController
   # GET /posts
   # GET /posts.xml
   def index
-    @posts = Post.all
-
+    #@posts = Post.all
+    @posts  = Post.order("updated_at").page(params[:page]).per(5)
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @posts }

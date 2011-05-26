@@ -1,8 +1,10 @@
 <div class="content">
+<%= paginate @posts %>
 <% @posts.each do |post| %>
 <%= post.title %>
 <%= link_to "Read", post_path(post), :id => post.id %>
 <%= link_to "Edit", edit_post_path(post), :id => "#{post.id}-edit" %>
 <br>
 <% end %>
+<%# end %>
 </div>

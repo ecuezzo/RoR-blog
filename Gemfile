@@ -8,6 +8,11 @@ gem 'simple_form'
 gem 'acts-as-taggable-on'
 gem 'omniauth'
 
+group :production, :development, :test do
+  gem 'kaminari'
+end
+
+
 group :development, :test do
   gem 'spork'
   gem "rspec-rails",        :git => "git://github.com/rspec/rspec-rails.git"
