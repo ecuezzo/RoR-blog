@@ -1,4 +1,5 @@
 <div class="content">
+Total posts: <%= @posts_count %>
 <%= paginate @posts %>
 <% @posts.each do |post| %>
 <div class="post">
@@ -10,9 +11,10 @@
   <%= post.updated_at %>
 </div>
 <div class="post-links">
-  <%= link_to "Read", post_path(post), :id => "#{post.id}-read" %>
+  <%= link_to "Read", post, :id => "#{post.id}-read" %>
   <% if admin_signed_in? %>
     <%= link_to "Edit", edit_post_path(post), :id => "#{post.id}-edit" %>
+    <%= link_to 'Destroy', post, :confirm => 'Are you sure?', :method => :delete %>
   <% end %>
 </div>
 <% end %>

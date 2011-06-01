@@ -4,8 +4,7 @@ height: 100%;
 
 aside, header, footer, .post {
     moz-border-radius: 10px;
-    border-radius: 10px;
-    background: #009999;
+    background: #a9bfd0;
 }
 
 header {
@@ -56,7 +55,7 @@ aside {
 
 .content a:hover {
     text-decoration: none;
-    background: #00cccc;
+    background: #a9bfd0;
     color: white;
 }
 
@@ -72,6 +71,8 @@ footer {
 .post {
     background: #a9bfd0;
     padding: 10px;
+    border-radius: 10px;
+    moz-border-radius: 10px;
 }
 
 .post-title {
