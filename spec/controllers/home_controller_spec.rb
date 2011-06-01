@@ -41,7 +41,7 @@ describe HomeController do
 
     it "should redirect from edit page to main, if not admin" do
       visit edit_post_path(@post)
-      page.should have_content("Access denied")
+      page.should have_content("Sign in")
     end
 
     it "should login with valid credentials" do
@@ -74,6 +74,23 @@ describe HomeController do
       fill_in 'post_body', :with => nil
       click_button 'post_submit'
       page.should have_no_content('Post was successfully updated.')
+    end
+
+    it "should create new post, if logged in" do
+      #fuck devise, fuck my low experiense :-)
+      visit destroy_admin_session_path
+      visit new_admin_session_path
+      fill_in 'admin_email', :with => 'ecuezzo@yahoo.ca' #@admin.email
+      fill_in 'admin_password', :with => '111111' #@admin.password
+      click_button 'Sign in'
+
+      #click_link('new_post')
+      visit new_post_path
+
+      fill_in 'post_title', :with => ActiveSupport::SecureRandom.hex(16)
+      fill_in 'post_body', :with => ActiveSupport::SecureRandom.hex(16)
+      click_button 'post_submit'
+      page.should have_content('Post was successfully created.')
     end
 
     it "should be working pagination" do

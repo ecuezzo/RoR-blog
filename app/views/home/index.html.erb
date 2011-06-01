@@ -1,5 +1,7 @@
 <div class="content">
 Total posts: <%= @posts_count %>
+<%= link_to "Add post", new_post_path, :id => 'new_post' %>
+<br>
 <%= paginate @posts %>
 <% @posts.each do |post| %>
 <div class="post">

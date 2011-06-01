@@ -86,3 +86,11 @@ footer {
     margin-top: 5px;
     margin-bottom: 20px;
 }
+
+#devise-signin-form {
+    text-align: center;
+}
+
+#devise-signin-form #admin_email {
+    margin-left: 25px;          /*quick hack*/
+}

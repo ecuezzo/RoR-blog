@@ -3,7 +3,7 @@ source 'http://rubygems.org'
 gem 'rails', '3.0.7'
 
 gem 'sqlite3'
-gem 'devise', '1.3.4'
+gem "devise", :git => "git://github.com/plataformatec/devise.git"
 gem 'jquery-rails'
 gem 'simple_form'
 gem 'acts-as-taggable-on'

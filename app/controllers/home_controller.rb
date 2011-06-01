@@ -1,4 +1,5 @@
 class HomeController < ApplicationController
+  before_filter :authenticate_admin!, :except => [:index, :show]
 
   def index
     #@posts = Post.all
@@ -16,33 +17,28 @@ class HomeController < ApplicationController
     end
   end
 
-#  def new
-#    @post = Post.new
-#
-#    respond_to do |format|
-#      format.html # new.html.erb
-#    end
-#  end
-
-  def edit
-    if admin_signed_in?
-       @post = Post.find(params[:id])
-    else
-       redirect_to(root_url, :notice => 'Access denied')
+  def new
+    @post = Post.new
+    respond_to do |format|
+      format.html
     end
   end
 
-#  def create
-#    @post = Post.new(params[:post])
-#
-#    respond_to do |format|
-#      if @post.save
-#        format.html { redirect_to(@post, :notice => 'Post was successfully created.') }
-#      else
-#        format.html { render :action => "new" }
-#      end
-#    end
-#  end
+  def edit
+       @post = Post.find(params[:id])
+  end
+
+  def create
+    @post = Post.new(params[:post])
+
+    respond_to do |format|
+      if @post.save
+        format.html { redirect_to(@post, :notice => 'Post was successfully created.') }
+      else
+        format.html { render :action => "new" }
+      end
+    end
+  end
 
   def update
     @post = Post.find(params[:id])
