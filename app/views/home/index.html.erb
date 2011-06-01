@@ -6,18 +6,21 @@ Total posts: <%= @posts_count %>
 <% @posts.each do |post| %>
 <div class="post">
   <div class="post-title">
-     <%= post.title %>
+     <%= link_to post.title, post, :id => "#{post.id}-read", :class => "post-title" %>
   </div>
   <%= post.body %>
   <br>
   <%= post.updated_at %>
 </div>
 <div class="post-links">
-  <%= link_to "Read", post, :id => "#{post.id}-read" %>
   <% if admin_signed_in? %>
+    <div id = "admin-links" >
     <%= link_to "Edit", edit_post_path(post), :id => "#{post.id}-edit" %>
     <%= link_to 'Destroy', post, :confirm => 'Are you sure?', :method => :delete %>
+    </div>
   <% end %>
+  Comments:
+  <%= post.comments.count.to_s %>
 </div>
 <% end %>
 </div>

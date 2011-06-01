@@ -1,3 +1,24 @@
 <%= @post.title %>
 <hr>
 <%= @post.body %>
+<div id="comments" >
+<h2>Comments</h2>
+<br>
+
+<% i = 0 %>
+<%= @comments.count.times do %>
+    <%= @comments[i].body %>
+    <% i += 1 %>
+    <hr>
+<% end %>
+
+<h3>Add comment</h3>
+
+<%= form_tag do %>
+<%= hidden_field_tag 'body[post_id]', @post.id %>
+<%= text_area(:body, :body, :cols => 50, :rows => 5) %>
+<br>
+<%= submit_tag("Post it") %>
+<% end %>
+
+</div>

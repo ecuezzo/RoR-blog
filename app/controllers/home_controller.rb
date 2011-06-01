@@ -12,6 +12,7 @@ class HomeController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
+    @comments = @post.comments
     respond_to do |format|
       format.html
     end
@@ -37,6 +38,17 @@ class HomeController < ApplicationController
       else
         format.html { render :action => "new" }
       end
+    end
+  end
+
+  def create_comment
+    @comment = Comment.new(params[:body])
+    respond_to do |format|
+
+    if @comment.save
+      redirect_to :back
+    end
+
     end
   end
 

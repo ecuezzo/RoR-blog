@@ -95,7 +95,7 @@ describe HomeController do
 
     it "should be working pagination" do
       visit root_url
-      click_link('Next')
+      click_link('Last')
       click_link(@record_count.to_s + '-edit')
       page.should have_content("Edit")
     end

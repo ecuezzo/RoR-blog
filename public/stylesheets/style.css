@@ -2,6 +2,15 @@ html, body {
 height: 100%;
 }
 
+body {
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+#comments {
+    padding-bottom: 50px;
+}
+
 aside, header, footer, .post {
     moz-border-radius: 10px;
     background: #a9bfd0;
@@ -82,9 +91,33 @@ footer {
     margin-bottom: 5px;
 }
 
+.post-title {
+    text-decoration: none;
+    color: #006699;
+}
+
+.post-title a:hover {
+    text-decoration: none;
+    color: #006699;
+}
+
 .post-links {
     margin-top: 5px;
     margin-bottom: 20px;
+}
+
+.post-links #admin-links{
+    float: right;
+    padding: 2px;
+    color: red;
+}
+
+#new_post {
+    float: right;
+    padding: 2px;
+    color: red;
+    margin-top: -12px;
+
 }
 
 #devise-signin-form {
