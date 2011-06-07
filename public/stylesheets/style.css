@@ -41,12 +41,12 @@ aside {
 }
 
 #admin-login {
-    style: inline;
-    text-align: left;
+    float: left;
     color: red;
     font-size: 15px;
-    padding-left: 10px;
-    margin-top: -15px;
+    margin-bottom: -15px;
+    padding: 5px;
+    background: #ffffcc;
 }
 
 #admin-login a {
@@ -54,9 +54,6 @@ aside {
     color: red;
 }
 
-#admin-login a:hover {
-    background: black;
-}
 
 .content {
     margin-right: 200px;
@@ -76,6 +73,7 @@ footer {
     width: 100%;
     color: white;
     text-align: center;
+    background: black;
 }
 
 .post {
@@ -126,4 +124,8 @@ footer {
 
 #devise-signin-form #admin_email {
     margin-left: 25px;          /*quick hack*/
+}
+
+.yashare-auto-init {
+    float: right;
 }

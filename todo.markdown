@@ -1,7 +1,10 @@
 ## ToDo
 
-* Tags
-* Auth for users with omniauth
+* Ajax search
+* Bug with kaminari, :remote => true not work at this time
+* Tags (search with tags, tag cloud)
+* Auth for users with omniauth to post comments
+* remove comments (admin)
 * Any normal WYSIWYG editor
 * JS --> CoffeeScript
 * ERB --> HAML/SLIM

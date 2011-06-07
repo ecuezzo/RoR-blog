@@ -1,5 +1,6 @@
 <%= simple_form_for @post do |post| %>
     <%= post.input :title, :label => 'Title' %>
     <%= post.input :body, :label => 'Post' %>
+    <%= post.input :tag_list, :label => 'Tags' %>
     <%= post.button :submit %>
 <% end %>

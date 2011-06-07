@@ -13,6 +13,12 @@ Total posts: <%= @posts_count %>
   <%= post.body %>
   <br>
   <%= post.updated_at %>
+  <br>
+  tagged with
+  <% post.tags.each do |tag| %>
+  <%= link_to tag, '#' %>
+  <% end %>
+
 </div>
 <div class="post-links">
   <% if admin_signed_in? %>

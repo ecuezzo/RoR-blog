@@ -13,14 +13,7 @@
     <div id="logo">
       <%= link_to "Welcome to my blog", root_url, :id => 'logo' %>
     </div>
-    <div id="admin-login">
-      <% if admin_signed_in? %>
-      <%= current_admin.email %>
-      <%= link_to "logout", destroy_admin_session_path %>
-      <% else %>
-      <%= link_to "admin login", new_admin_session_path %>
-      <% end %>
-    </div>
+
   </h1>
 
 </header>
@@ -29,14 +22,25 @@
 <p class="alert"><%= alert %></p>
 
 <aside>
-Acts_as_taggable_on
+place for search and tag cloud
 </aside>
 
 <%= yield %>
 
 
 <footer>
+      <div id="admin-login">
+      <% if admin_signed_in? %>
+      Admin
+      <%= current_admin.email %>
+      <%= link_to "logout", destroy_admin_session_path %>
+      <% else %>
+      [development] admin
+      <%= link_to "login", new_admin_session_path %>
+      <% end %>
+    </div>
   &#169; 2011
+<%= render 'layouts/social-links' %>
 </footer>
 
 </body>

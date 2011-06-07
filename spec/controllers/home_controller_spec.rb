@@ -19,7 +19,6 @@ describe HomeController do
     it "should be posts on index page" do
       visit root_url
       page.should have_content(@post.title)
-      save_and_open_page
     end
 
     it "should show page for each post" do
