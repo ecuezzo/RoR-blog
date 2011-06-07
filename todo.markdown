@@ -7,5 +7,5 @@
 * JS --> CoffeeScript
 * ERB --> HAML/SLIM
 * CSS --> SASS
-* Specs refactoring (Devise testing)
-
+* Specs refactoring (Devise testing, request specs)
+* Specs (+ Selenium to test confirmation box)
