@@ -13,18 +13,18 @@ body {
 
 aside, header, footer, .post {
     moz-border-radius: 10px;
-    background: #a9bfd0;
+    border: 1px solid black;
 }
 
 header {
-    color: white;
+    color: #00ccff;
     width: 100%;
     text-align: center;
 }
 
 header a {
     text-decoration: none;
-    color: white;
+    color: #00ccff;
 }
 
 aside {
@@ -36,7 +36,7 @@ aside {
 }
 
 #logo {
-    color: white;
+    color: #006699;
     text-align: center;
 }
 
@@ -66,6 +66,7 @@ aside {
     text-decoration: none;
     background: #a9bfd0;
     color: white;
+    border: 1px solid black;
 }
 
 footer {
@@ -78,16 +79,15 @@ footer {
 }
 
 .post {
-    background: #a9bfd0;
     padding: 10px;
     border-radius: 10px;
     moz-border-radius: 10px;
+    border: 1px solid black;
 }
 
 .post-title {
     font-size: 20px;
     font-weight: bold;
-    border-bottom: 1px solid #999999;
     margin-bottom: 5px;
 }
 

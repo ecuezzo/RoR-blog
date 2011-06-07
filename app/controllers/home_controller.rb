@@ -4,7 +4,7 @@ class HomeController < ApplicationController
   def index
     #@posts = Post.all
     @posts_count = Post.count
-    @posts  = Post.order("updated_at").page(params[:page]).per(5)
+    @posts  = Post.order(:updated_at).page(params[:page])
     respond_to do |format|
       format.html
     end
