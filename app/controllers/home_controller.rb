@@ -1,8 +1,7 @@
 class HomeController < ApplicationController
-  before_filter :authenticate_admin!, :except => [:index, :show]
+  before_filter :authenticate_admin!, :except => [:index, :show, :create_comment]
 
   def index
-    #@posts = Post.all
     @posts_count = Post.count
     @posts  = Post.order(:updated_at).page(params[:page])
     respond_to do |format|
@@ -31,24 +30,30 @@ class HomeController < ApplicationController
 
   def create
     @post = Post.new(params[:post])
-
+    flash[:notice] = "create called (debug)"
     respond_to do |format|
       if @post.save
         format.html { redirect_to(@post, :notice => 'Post was successfully created.') }
+        format.js {}
       else
         format.html { render :action => "new" }
+        #format.js {}
       end
     end
   end
 
+
   def create_comment
-    @comment = Comment.new(params[:body])
-    respond_to do |format|
-
+  @comment = Comment.new(params[:comment])
+  respond_to do |format|
     if @comment.save
-      redirect_to :back
+      logger.info("comment save ok")
+     # format.html { redirect_to :back }
+      format.js {}
+    else
+      logger.info("comment save fail")
+      redirect_to posts_path
     end
-
     end
   end
 

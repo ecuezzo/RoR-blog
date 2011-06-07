@@ -29,7 +29,7 @@ describe HomeController do
 
     it "should go to main when click logo" do
       visit root_url
-      click_link(@post.id.to_s)
+      click_link(Post.first.id.to_s + '-read')
       click_link('logo')
       page.should have_content('Welcome to my blog')
     end
@@ -94,10 +94,20 @@ describe HomeController do
     end
 
     it "should be working pagination" do
-      visit root_url
-      click_link('Last')
-      click_link(@record_count.to_s + '-edit')
-      page.should have_content("Edit")
+#      visit root_url
+#      click_link('Older')
+#      click_link(@record_count.to_s + '-edit')
+#      page.should have_content('Edit')
+      pending "add database_cleaner gem"
+    end
+
+    it "should post comment" do
+#      visit root_url
+#      click_link(@post.id.to_s + '-read')
+#      fill_in 'comment_body', :with => 'it is awesome post, thanks'
+#      click_button 'comment_submit'
+#      page.should have_content('it is awesome post, thanks')
+      pending "js support in tests"
     end
 
   after (:all) do
