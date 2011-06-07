@@ -5,12 +5,12 @@ describe HomeController do
   render_views
 
   before(:all) do
-    @post = Factory(:post, :title => 'sample', :body => 'sample1')
     #@admin = Factory(:admin)
     10.times do  # >5, for kaminari test
       Factory(:post, :title => ActiveSupport::SecureRandom.hex(16), :body => ActiveSupport::SecureRandom.hex(16))
     end
     @record_count = Post.all.count
+    @post = Post.first
 
     #factory_girl can't see :admin factory at this time, it's strange. So, refactor is coming.
     Admin.create!(:email => 'ecuezzo@yahoo.ca', :password => '111111')
@@ -19,6 +19,7 @@ describe HomeController do
     it "should be posts on index page" do
       visit root_url
       page.should have_content(@post.title)
+      save_and_open_page
     end
 
     it "should show page for each post" do
@@ -94,11 +95,10 @@ describe HomeController do
     end
 
     it "should be working pagination" do
-#      visit root_url
-#      click_link('Older')
-#      click_link(@record_count.to_s + '-edit')
-#      page.should have_content('Edit')
-      pending "add database_cleaner gem"
+      visit root_url
+      click_link('Older')
+      click_link(@record_count.to_s + '-edit')
+      page.should have_content('Edit')
     end
 
     it "should post comment" do

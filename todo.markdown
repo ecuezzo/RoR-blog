@@ -1,6 +1,5 @@
 ## ToDo
 
-* AJAX comments via Jquery
 * Tags
 * Auth for users with omniauth
 * Any normal WYSIWYG editor

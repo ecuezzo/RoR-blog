@@ -24,6 +24,7 @@ require File.expand_path("../../config/environment", __FILE__)
 require 'rspec/rails'
 require 'capybara/rspec'
 require 'factory_girl'
+require 'database_cleaner'
 
 Factory.find_definitions
 
@@ -33,4 +34,9 @@ RSpec.configure do |config|
   config.mock_with :rspec
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
   config.use_transactional_fixtures = true
+
+  config.before(:all) do
+    DatabaseCleaner.strategy = :truncation
+    DatabaseCleaner.clean
+  end
 end

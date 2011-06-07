@@ -22,10 +22,10 @@ group :development, :test do
   gem "rspec-core",         :git => "git://github.com/rspec/rspec-core.git"
   gem "rspec-expectations", :git => "git://github.com/rspec/rspec-expectations.git"
   gem "rspec-mocks",        :git => "git://github.com/rspec/rspec-mocks.git"
-  gem 'factory_girl_rails'  #try fabrication? hm...
+  gem 'factory_girl_rails'
   gem 'capybara'
   gem 'launchy'
-  #gem 'database_cleaner'
+  gem 'database_cleaner'
   gem 'simplecov', '>= 0.4.0', :require => false
   gem 'rails_best_practices', :require => false
 end
