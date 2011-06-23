@@ -15,7 +15,7 @@
     <% if admin_signed_in? %>
         <%= link_to 'Удалить',"#{post_path}/#{comment.id}/delete", :confirm => 'Точно?' %>
     <% end %>
-      <%= comment.updated_at %>
+      <%= time_ago_in_words(comment.updated_at) %> назад
     </div>
     <br>
     <%= comment.body %>

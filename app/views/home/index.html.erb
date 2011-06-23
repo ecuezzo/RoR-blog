@@ -10,7 +10,7 @@
 <% @posts.each do |post| %>
 <div class="post">
   <div class="updated">
-    <%= post.updated_at %>
+    Написано <%= time_ago_in_words(post.updated_at) %> назад
   </div>
   <div class="post-title">
      <%= link_to post.title, post, :id => "#{post.id}-read", :class => "post-title" %>
