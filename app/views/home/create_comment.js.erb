@@ -1,0 +1,5 @@
+var user_comment = "<%= escape_javascript(render("comment")) %>";
+$("#user_comments").append(user_comment);
+$("#comment_<%= @comment.id %>").hide().fadeIn(1000);
+$("#comment_new")[0].reset();
+
