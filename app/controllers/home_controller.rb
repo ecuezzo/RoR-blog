@@ -61,6 +61,14 @@ class HomeController < ApplicationController
     redirect_to :back
   end
 
+  def tagged_with
+    @posts = Post.tagged_with(params[:tag]).page(params[:page])
+
+    respond_to do |format|
+      format.html
+    end
+  end
+
   def update
     @post = Post.find(params[:id])
 

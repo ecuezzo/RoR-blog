@@ -57,7 +57,7 @@ describe HomeController do
       click_link(@post.id.to_s + '-edit')
       fill_in 'post_title', :with => ActiveSupport::SecureRandom.hex(16)
       fill_in 'post_body', :with => ActiveSupport::SecureRandom.hex(16)
-      click_button 'post_submit'
+      click_button 'wymupdate'
       page.should have_content('Post was successfully updated.')
     end
 
@@ -72,7 +72,7 @@ describe HomeController do
       click_link(@post.id.to_s + '-edit')
       fill_in 'post_title', :with => ActiveSupport::SecureRandom.hex(16)
       fill_in 'post_body', :with => nil
-      click_button 'post_submit'
+      click_button 'wymupdate'
       page.should have_no_content('Post was successfully updated.')
     end
 
@@ -89,7 +89,7 @@ describe HomeController do
 
       fill_in 'post_title', :with => ActiveSupport::SecureRandom.hex(16)
       fill_in 'post_body', :with => ActiveSupport::SecureRandom.hex(16)
-      click_button 'post_submit'
+      click_button 'wymupdate'
       page.should have_content('Post was successfully created.')
     end
 

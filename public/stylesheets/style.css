@@ -62,14 +62,16 @@ aside {
 }
 
 .content a {
-    background: #ff9966;
-    color: white;
+    color: #006699;
     text-decoration: none;
 }
 
 .content a:hover {
     text-decoration: none;
-    color: white;
+}
+
+.tag {
+    background: #ffffcc;
 }
 
 footer {
@@ -77,9 +79,9 @@ footer {
     bottom: 0;
     left: 0;
     width: 100%;
-    color: white;
+    color: #006699;
     text-align: center;
-    background: black;
+    background: #ffffcc;
 }
 
 .post {
@@ -97,6 +99,8 @@ footer {
     font-size: 20px;
     font-weight: bold;
     margin-bottom: 5px;
+    padding-bottom: 2px;
+    border-bottom: 1px dashed #006699;
 }
 
 .post-title {
@@ -135,7 +139,7 @@ footer {
 }
 
 #user_comments .comment {
-    background: #ccccff;
+    background: #ffffcc;
     padding: 5px;
     margin-top: 10px;
     width: 70%;
