@@ -1,16 +1,25 @@
+<div class="post-title">
 <%= @post.title %>
-<hr>
+</div>
+<div class="post-body">
 <%= @post.body %>
+</div>
 <div id="comments" >
 <h2>User comments</h2>
 <br>
 
 <div id="user_comments">
 <% @comments.each do |comment| %>
-  <div id="comment_<%= comment.id.to_s %>">
+  <div id="comment_<%= comment.id.to_s %>" class="comment">
+    <div class="comment_date">
+          <% if admin_signed_in? %>
+        <%= link_to 'delete comment',"#{post_path}/#{comment.id}/delete", :confirm => 'Sure?' %>
+    <% end %>
+      <%= comment.updated_at %>
+    </div>
+    <br>
     <%= comment.body %>
   </div>
-  <hr>
   <% end %>
 </div>
 

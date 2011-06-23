@@ -1,4 +1,7 @@
-<div id="comment_<%= @comment.id.to_s %>">
+<div id="comment_<%= @comment.id.to_s %>" class="comment">
+<div class="comment_date">
+    <%= @comment.updated_at %>
+</div>
+<br>
 <%= @comment.body %>
 </div>
-<hr>

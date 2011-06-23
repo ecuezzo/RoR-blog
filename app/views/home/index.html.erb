@@ -1,20 +1,22 @@
 <div class="content">
 Total posts: <%= @posts_count %>
 <% if admin_signed_in? %>
-    <%= link_to "Add post", new_post_path, :id => 'new_post' %>
+    <div class="admin-links">
+        <%= link_to "Add post", new_post_path, :id => 'new_post' %>
+    </div>
 <% end %>
 <br>
 <%= paginate @posts %>
 <% @posts.each do |post| %>
 <div class="post">
+  <div class="updated">
+    <%= post.updated_at %>
+  </div>
   <div class="post-title">
      <%= link_to post.title, post, :id => "#{post.id}-read", :class => "post-title" %>
   </div>
   <%= post.body %>
   <br>
-  <%= post.updated_at %>
-  <br>
-  tagged with
   <% post.tags.each do |tag| %>
   <%= link_to tag, '#' %>
   <% end %>
@@ -22,9 +24,9 @@ Total posts: <%= @posts_count %>
 </div>
 <div class="post-links">
   <% if admin_signed_in? %>
-    <div id = "admin-links" >
+    <div class = "admin-links" >
     <%= link_to "Edit", edit_post_path(post), :id => "#{post.id}-edit" %>
-    <%= link_to 'Destroy', post, :confirm => 'Are you sure?', :method => :delete %>
+    <%= link_to 'Destroy', post, :confirm => 'Sure?', :method => :delete %>
     </div>
   <% end %>
   Comments:

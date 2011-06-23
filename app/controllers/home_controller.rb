@@ -57,6 +57,13 @@ class HomeController < ApplicationController
     end
   end
 
+  def destroy_comment
+    @comment = Comment.find(params[:comment_id])
+    @comment.destroy
+
+    redirect_to :back
+  end
+
   def update
     @post = Post.find(params[:id])
 
