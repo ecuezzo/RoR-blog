@@ -1,5 +1,8 @@
 <div id="comment_<%= @comment.id.to_s %>" class="comment">
 <div class="comment_date">
+            <% if admin_signed_in? %>
+        <%= link_to 'delete comment',"#{post_path}/#{@comment.id}/delete", :confirm => 'Sure?' %>
+    <% end %>
     <%= @comment.updated_at %>
 </div>
 <br>

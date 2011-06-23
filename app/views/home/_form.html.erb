@@ -1,6 +1,23 @@
-<%= simple_form_for @post do |post| %>
-    <%= post.input :title, :label => 'Title' %>
-    <%= post.input :body, :label => 'Post' %>
-    <%= post.input :tag_list, :label => 'Tags' %>
-    <%= post.button :submit %>
+<% content_for :redactor do %>
+    <%= javascript_include_tag "wymeditor/jquery.wymeditor.pack" %>
+
+<script>
+    $(function() {
+    $("#post_body").wymeditor({ lang: 'ru' });
+
+    });
+</script>
+
 <% end %>
+
+<div id="edit_form">
+<%= simple_form_for @post do |post| %>
+    Заголовок <br>
+    <%= post.input :title, :label => false %>
+    Пост <br>
+    <%= post.input :body, :label => false %>
+    Тэги поста (через запятую) <br>
+    <%= post.input :tag_list, :label => false %>
+    <%= post.button :submit, :id => "wymupdate", :value => "Сохранить" %>
+<% end %>
+</div>

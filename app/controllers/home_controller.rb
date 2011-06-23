@@ -47,11 +47,8 @@ class HomeController < ApplicationController
   @comment = Comment.new(params[:comment])
   respond_to do |format|
     if @comment.save
-      logger.info("comment save ok")
-     # format.html { redirect_to :back }
       format.js {}
     else
-      logger.info("comment save fail")
       redirect_to posts_path
     end
     end

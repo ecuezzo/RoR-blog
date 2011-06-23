@@ -2,18 +2,18 @@
 <%= @post.title %>
 </div>
 <div class="post-body">
-<%= @post.body %>
+<%= raw(@post.body) %>
 </div>
 <div id="comments" >
-<h2>User comments</h2>
+<h2>Комментарии</h2>
 <br>
 
 <div id="user_comments">
 <% @comments.each do |comment| %>
   <div id="comment_<%= comment.id.to_s %>" class="comment">
     <div class="comment_date">
-          <% if admin_signed_in? %>
-        <%= link_to 'delete comment',"#{post_path}/#{comment.id}/delete", :confirm => 'Sure?' %>
+    <% if admin_signed_in? %>
+        <%= link_to 'Удалить',"#{post_path}/#{comment.id}/delete", :confirm => 'Точно?' %>
     <% end %>
       <%= comment.updated_at %>
     </div>
@@ -22,13 +22,12 @@
   </div>
   <% end %>
 </div>
-
-<h2>Say something!</h2>
+<br>
 <%= form_for Comment.new, :as => :comment, :url => @post, :remote => true do |f| %>
     <%= hidden_field_tag 'comment[post_id]', @post.id %>
-	<%= f.label :body, "Comment" %><br />
+	<%= f.label :body, "Комментарий" %><br />
 	<%= f.text_area :body, :rows => 8 %><br />
-	<%= f.submit "Add comment" %>
+	<%= f.submit "Добавить" %>
 <% end %>
 
 </div>

@@ -122,14 +122,6 @@ footer {
     color: red;
 }
 
-#new_post {
-    float: right;
-    padding: 2px;
-    color: red;
-    margin-top: -12px;
-
-}
-
 #devise-signin-form {
     text-align: center;
 }
@@ -155,4 +147,9 @@ footer {
 
 .comment_date {
     float: right;
+}
+
+#edit_form {
+    float: left;
+    width: 75%;
 }

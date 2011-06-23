@@ -1,8 +1,8 @@
 <div class="content">
-Total posts: <%= @posts_count %>
+Постов в блоге: <%= @posts_count %>
 <% if admin_signed_in? %>
     <div class="admin-links">
-        <%= link_to "Add post", new_post_path, :id => 'new_post' %>
+        <%= link_to "Создать новый пост", new_post_path, :id => 'new_post' %>
     </div>
 <% end %>
 <br>
@@ -15,7 +15,7 @@ Total posts: <%= @posts_count %>
   <div class="post-title">
      <%= link_to post.title, post, :id => "#{post.id}-read", :class => "post-title" %>
   </div>
-  <%= post.body %>
+  <%= raw(post.body) %>
   <br>
   <% post.tags.each do |tag| %>
   <%= link_to tag, '#' %>
@@ -25,11 +25,11 @@ Total posts: <%= @posts_count %>
 <div class="post-links">
   <% if admin_signed_in? %>
     <div class = "admin-links" >
-    <%= link_to "Edit", edit_post_path(post), :id => "#{post.id}-edit" %>
-    <%= link_to 'Destroy', post, :confirm => 'Sure?', :method => :delete %>
+    <%= link_to "Изменить", edit_post_path(post), :id => "#{post.id}-edit" %>
+    <%= link_to 'Удалить', post, :confirm => 'Точно?', :method => :delete %>
     </div>
   <% end %>
-  Comments:
+  Комментарии:
   <%= post.comments.count.to_s %>
 </div>
 <% end %>
