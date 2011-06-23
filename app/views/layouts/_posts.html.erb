@@ -1,0 +1,28 @@
+<%= paginate @posts %>
+<% @posts.each do |post| %>
+    <div class="post">
+      <div class="updated">
+        Написано <%= time_ago_in_words(post.updated_at) %> назад
+      </div>
+      <div class="post-title">
+        <%= link_to post.title, post, :id => "#{post.id}-read", :class => "post-title" %>
+      </div>
+        <%= raw(post.body) %>
+      <br>
+      <% post.tags.each do |tag| %>
+          <%= link_to tag, "#{root_url}tag/#{tag}", :class => 'tag' %>
+      <% end %>
+
+    </div>
+    <div class="post-links">
+      <% if admin_signed_in? %>
+          <div class = "admin-links" >
+            <%= link_to "Изменить", edit_post_path(post), :id => "#{post.id}-edit" %>
+            <%= link_to 'Удалить', post, :confirm => 'Точно?', :method => :delete %>
+          </div>
+      <% end %>
+      Комментарии:
+      <%= post.comments.count.to_s %>
+    </div>
+<% end %>
+
