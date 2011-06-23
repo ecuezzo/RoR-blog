@@ -1,7 +1,3 @@
-html, body {
-height: 100%;
-}
-
 body {
     padding-left: 50px;
     padding-right: 50px;
@@ -11,13 +7,10 @@ body {
     padding-bottom: 50px;
 }
 
-footer, .post {
-    moz-border-radius: 10px;
-}
-
 header {
     color: #00ccff;
     width: 100%;
+    padding-bottom: 40px;
 }
 
 header a {
@@ -25,18 +18,10 @@ header a {
     color: #00ccff;
 }
 
-aside {
-    float: right;
-    width: 150px;
-    min-height: 80%;
-    margin-top: -10px;
-    padding: 10px;
-    background: #ffffd5;
-}
-
 #logo {
     color: #006699;
-    font-size: 25px;
+    font-size: 20px;
+    font-weight: bold;
     float: left;
     border-bottom: 2px dashed;
 }
@@ -55,9 +40,7 @@ aside {
     color: red;
 }
 
-
 .content {
-    margin-right: 200px;
     padding-bottom: 30px;
 }
 
@@ -87,8 +70,6 @@ footer {
 .post {
     padding-bottom: 10px;
     padding-top: 10px;
-    border-radius: 10px;
-    moz-border-radius: 10px;
 }
 
 .post .updated {
@@ -98,8 +79,7 @@ footer {
 .post-title {
     font-size: 20px;
     font-weight: bold;
-    margin-bottom: 5px;
-    padding-bottom: 2px;
+    padding-bottom: 3px;
     border-bottom: 1px dashed #006699;
 }
 
@@ -140,13 +120,16 @@ footer {
 
 #user_comments .comment {
     background: #ffffcc;
-    padding: 5px;
+    padding: 10px;
     margin-top: 10px;
     width: 70%;
+    -moz-border-radius: 15px;
+    -webkit-border-radius: 15px;
+    border-radius: 15px;
 }
 
 .post-body {
-    width: 75%;
+    width: 100%;
 }
 
 .comment_date {
@@ -156,4 +139,9 @@ footer {
 #edit_form {
     float: left;
     width: 75%;
+}
+
+#search {
+    margin: auto;
+    float: right;
 }

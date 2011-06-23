@@ -30,7 +30,6 @@ class HomeController < ApplicationController
 
   def create
     @post = Post.new(params[:post])
-    flash[:notice] = "create called (debug)"
     respond_to do |format|
       if @post.save
         format.html { redirect_to(@post, :notice => 'Post was successfully created.') }

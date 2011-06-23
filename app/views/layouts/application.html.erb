@@ -10,20 +10,24 @@
 <body>
 
 <header>
-  <h1>
-    <div id="logo">
-      <%= link_to "Минималистический блог на rails", root_url, :id => 'logo' %>
-    </div>
-    <br>
-  </h1>
+
+      <div id="logo">
+         <%= link_to "Минималистический блог на rails", root_url, :id => 'logo' %>
+      </div>
+      <br>
+
+      <div id="search">
+      <% form_tag :method=>:get do %>
+        <%= text_field_tag 's_query' ,''%>
+        <%= submit_tag "Найти" %>
+      <% end %>
+      </div>
 
 </header>
 
 <p class="notice"><%= notice %></p>
 <p class="alert"><%= alert %></p>
 
-<aside>
-</aside>
 
 <%= yield %>
 
