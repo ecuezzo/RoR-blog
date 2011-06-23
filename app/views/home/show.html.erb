@@ -7,7 +7,9 @@
 
 <div id="user_comments">
 <% @comments.each do |comment| %>
-  <%= comment.body %>
+  <div id="comment_<%= comment.id.to_s %>">
+    <%= comment.body %>
+  </div>
   <hr>
   <% end %>
 </div>
