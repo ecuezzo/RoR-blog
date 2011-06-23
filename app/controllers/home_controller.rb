@@ -1,5 +1,5 @@
 class HomeController < ApplicationController
-  before_filter :authenticate_admin!, :except => [:index, :show, :create_comment]
+  before_filter :authenticate_admin!, :except => [:index, :show, :tagged_with, :create_comment]
 
   def index
     @posts_count = Post.count
@@ -36,7 +36,6 @@ class HomeController < ApplicationController
         format.js {}
       else
         format.html { render :action => "new" }
-        #format.js {}
       end
     end
   end
